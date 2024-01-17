@@ -32,20 +32,38 @@ function addToStorage(div){
 function strToDiv(str){
     let newDiv = document.createElement("div");
     let divInfo = str.split(div_sep);
-    newDiv.setAttribute("id", divInfo[1]);
-    newDiv.textContent = divInfo[0];
+    return createTask(divInfo[0], divInfo[1]);
+}
+
+function createTask(inputText, id = ""){
+    let newDiv = document.createElement("div");
+    newDiv.setAttribute("id", (id === "")?num_tasks++: id);
+    newDiv.textContent = inputText;
     newDiv.setAttribute("class", "task");
+    newDiv.onmouseover = () => {
+        newDiv.original = newDiv.textContent;
+        newDiv.textContent = "Remover?";
+    };
+    newDiv.onmouseleave = () => {
+        newDiv.textContent = newDiv.original;
+    };
+    newDiv.onclick = () => {
+        newDiv.onmouseleave();
+        let str = storage_sep+divToString(newDiv);
+        let start = localStorage["tasks"].indexOf(str);
+        let temp = localStorage["tasks"];
+        localStorage["tasks"] = localStorage["tasks"].slice(0, start);
+        localStorage["tasks"] += temp.slice(start+str.length);
+        num_tasks--;
+        newDiv.remove();
+    };
     return newDiv;
 }
 
 addButton.onclick = ()=>{
     const inputText = inputTag.value;
     if (inputText === "") return;
-
-    let newDiv = document.createElement("div");
-    newDiv.setAttribute("id", num_tasks++);
-    newDiv.textContent = inputText;
-    newDiv.setAttribute("class", "task");
+    let newDiv = createTask(inputText);     
     taskList.appendChild(newDiv);
     addToStorage(newDiv);
     inputTag.value = "";
