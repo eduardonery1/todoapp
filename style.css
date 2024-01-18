@@ -38,15 +38,10 @@ body {
     font-size: 25px;
     padding: 0 10px 0 0;
     border-radius: 10px;
-    align: center;
 }
 
 #add-btn {
     width: 10%;
-}
-
-h1 {
-    align: center;
 }
 
 footer {
