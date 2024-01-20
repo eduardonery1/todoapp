@@ -1,15 +1,16 @@
-import {Task} from "./task.js"
+import {Task} from "./controller.js"
 
 
 export class Storage {
-    #div_sep = "~text-id~";
-    #storage_sep = "~div-div~";
+    #div_sep = "|";
+    #storage_sep = "~";
     
-    constructor(){
+    constructor(app){
         if (!localStorage["tasks"]){
             localStorage.setItem("tasks", "");
         }
         this.data = localStorage["tasks"];
+        this.app = app;
     }
 
     push(task) {
@@ -30,7 +31,7 @@ export class Storage {
 
     strToTask(str) {
         let divInfo = str.split(this.#div_sep);
-        return new Task(divInfo[0], divInfo[1]);
+        return new Task(divInfo[0], divInfo[1], this.app);
     }
 
     loadTasks() {
