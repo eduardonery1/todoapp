@@ -1,49 +1,54 @@
 body {
-    width: 80%;
     margin: 0 auto;
-    background-color: #DD4343;
-    padding: 0 20px 20px 20px;
-}
-
-.task-list {
-    display: inline;
-}
-
-.task:hover{
-    background-color: #ff0000;
-    opacity: 100%;
-}
-
-.task {
+    width: 80%;
+    background: rgb(186, 73, 73);
     text-align: center;
-    font-size: 30px;
-    padding: 5px 5px 5px 5px;
-    opacity: 80%;
-    border: 2px solid;
-    border-radius: 10px;
-    
 }
 
 .task-creator {
-    margin: 0 auto;
-    padding: 10px 10px 10px 0;
-    background-color: #f85f5f;
-    border-radius: 10px;
-
+    margin: 10px auto;
+    width: 80%;
+    height: 10%;
+    background-color: rgb(200, 90, 90);
+    align-items: center;
+    padding: 10px 0;
 }
 
-.task-text {
-    width: 85%;
-    margin: 0 auto;
-    font-size: 25px;
-    padding: 0 10px 0 0;
-    border-radius: 10px;
+.task-list {
+    margin: 10px auto;
+    width: 80%;
+    height: 10%;
+    background-color: rgb(200, 90, 90);
+    align-items: center;
 }
 
-#add-btn {
-    width: 10%;
+.task-text{
+    width: 80%;
+    margin: auto;
+    line-height: 3em;
 }
 
-footer {
-    padding: 30% 0 0 0;
+.task-btn {
+    width: auto;
+    margin: auto;
+    line-height: 3em;
+    border-radius: 5px;
+    background-color: white;
 }
+
+
+.task {
+    font-size: 20px;
+    border: 2px solid white;
+    background-color: rgb(200, 90, 90);
+    height: 3em;
+    text-align: center;
+    padding-top: 1em;
+}
+
+.task:hover {
+    background-color: red;
+    width: 100.5%;
+    margin-left: -0.25%;
+}
+
