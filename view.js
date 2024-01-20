@@ -16,4 +16,9 @@ addButton.onclick = ()=> {
     inputTag.value = "";
 };
 
+inputTag.addEventListener('keypress', (e)=>{
+    if (e.key === "Enter"){
+        addButton.onclick();
+    }
+})
 
